@@ -1,0 +1,17 @@
+{
+  "name": "terraform-sam-typescript-local",
+  "version": "1.0.0",
+  "type":"module",
+  "scripts": {
+    "build:ci": "esbuild src/index.mts --bundle --minify --platform=node --format=esm --target=node20 --outfile=dist/index.mjs",
+    "build:local": "esbuild src/index.mts --platform=node --format=esm --target=node20 --watch --outfile=dist/index.mjs",
+    "start:debug": "cd terraform && sam local start-api -d 5858",
+    "start:local": "cd terraform && sam local start-api"
+  },
+  "author": "Ryan Cormack",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.132",
+    "esbuild": "^0.19.12",
+    "typescript": "^5.3.3"
+  }
+}
